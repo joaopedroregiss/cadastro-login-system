@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="box-form">
+    <header class="header-form">
+      <h1 class="title-form">Entrar</h1>
+      <p class="paragraph-form">Acesse sua conta para continuar.</p>
+    </header>
+
+    <form class="form" action="#" method="post">
+      <div class="field">
+        <label class="label-form" for="user">Usuário</label>
+        <input class="input-form" id="user" name="user" type="text" placeholder="Digite seu usuário"
+          autocomplete="username" required />
+      </div>
+
+      <div class="field">
+        <label class="label-form" for="password">Senha</label>
+        <input class="input-form" id="password" name="password" type="password" placeholder="Digite sua senha"
+          autocomplete="current-password" required />
+      </div>
+
+      <div class="options-form">
+        <label class="remember-form">
+          <input type="checkbox" name="remember" />
+          <span>Lembrar da senha</span>
+        </label>
+      </div>
+
+      <button class="btn-form" type="button" onclick="enviar()">Entrar</button>
+    </form>
+  </main>
+  <script>
+    function enviar() {
+      var x = document.querySelector('#user').value;
+      var y = document.querySelector('#password').value;
+
+      fetch(`http://localhost:3000/api/${x}/${y}`)
+      .then(response => response.text())
+      .then(data => {
+        if (data == "1") alert("Sucesso!")
+        else alert("Erro. Senha ou usuario incorretos")
+      })
+    }
+  </script>
+</body>
+
+</html>
