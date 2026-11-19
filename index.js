@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+<<<<<<< HEAD
 app.get("/cadastro/:nome/:usuario/:senha", (req, res) => {
   console.log("Nome: " + req.params.usuario)
   console.log("Usuario: " + req.params.nome)
@@ -27,6 +28,8 @@ app.get("/cadastro/:nome/:usuario/:senha", (req, res) => {
   console.log("okay")
 });
 
+=======
+>>>>>>> 81427f9aeaeb2849a9dac89565a1100685a42697
 app.get("/api/:param/:param2", (req, res) => {
   console.log("Usuario: " + req.params.param)
   console.log("Senha: " + req.params.param2)
